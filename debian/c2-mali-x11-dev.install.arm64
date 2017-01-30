@@ -1,0 +1,3 @@
+x11/mali_headers/ump usr/include/
+x11/mali_headers/umplock usr/include/
+pkgconfig/* usr/lib/arm-linux-gnueabihf/pkgconfig/

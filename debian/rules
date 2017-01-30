@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+%:
+	dh $@
+
+override_dh_install:
+	dh_install
+	echo "/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl" \
+        > $(CURDIR)/debian/c2-mali-x11/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl/ld.so.conf
+	for file in debian/*.in; \
+	do \
+		sed -e"s,\$${DEB_HOST_MULTIARCH},$(DEB_HOST_MULTIARCH),g" \
+			$${file} > $${file%%.in}; \
+	done
+	for file in debian/c2-mali-x11-dev/usr/lib/arm-linux-gnueabihf/pkgconfig/*.pc; \
+	do \
+		sed -i -e"s,lib/$(DEB_HOST_MULTIARCH),lib/$(DEB_HOST_MULTIARCH)/mali-egl,g" \
+			${file}; \
+	done
