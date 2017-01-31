@@ -1,2 +1,2 @@
-x11/mali_libs/* usr/lib/arm-linux-gnueabihf/mali-egl
+x11/mali_libs/* usr/lib/aarch64-linux-gnu/mali-egl
 
